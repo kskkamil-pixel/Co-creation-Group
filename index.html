@@ -3,55 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#174a32">
+  <meta name="theme-color" content="#176b4a">
   <title>STEAM meets GreenComp Toolkit Co-creation Group</title>
   <style>
     :root {
       color-scheme: light;
       --ink: #20352a;
       --muted: #526b70;
-      --green: #2f7048;
-      --green-dark: #174a32;
+      --green: #176b4a;
+      --green-dark: #104c36;
       --blue: #287ca3;
+      --yellow: #f0c84b;
       --line: #cbdedb;
-      --soft: #eff6f2;
+      --soft: #f1f7f3;
       --shadow: 0 12px 32px rgba(27, 55, 48, .11);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background: #e9f2ee;
+      background: #eaf3ed;
     }
     * { box-sizing: border-box; }
     body {
       min-height: 100vh; margin: 0; padding: 32px 16px 56px;
-      background: radial-gradient(ellipse at 8% 5%, rgba(116, 165, 112, .38), transparent 30rem),
+      background: radial-gradient(ellipse at 8% 5%, rgba(128, 190, 135, .40), transparent 30rem),
         radial-gradient(ellipse at 92% 18%, rgba(91, 174, 211, .34), transparent 28rem),
-        linear-gradient(140deg, #f1f7ed, #e6f1f8 58%, #eaf5ef);
+        radial-gradient(ellipse at 50% 100%, rgba(240, 200, 75, .20), transparent 34rem),
+        linear-gradient(140deg, #f1f8ed, #e6f1f8 58%, #fbf7e8);
     }
     main { width: min(100%, 980px); margin: 0 auto; }
     .intro, .section, .print-summary {
       margin-bottom: 18px; padding: 24px; border: 1px solid rgba(199, 220, 212, .95);
-      border-radius: 18px; background: rgba(255, 255, 255, .94); box-shadow: var(--shadow);
+      border-radius: 18px; background: rgba(255, 255, 255, .95); box-shadow: var(--shadow);
     }
-    .intro { padding: clamp(24px, 5vw, 42px); background: linear-gradient(125deg, #fff, #edf6e9 65%, #e7f3fa); }
-    .eyebrow { display: inline-flex; margin-bottom: 14px; padding: 7px 12px; border: 1px solid #c8ded1;
-      border-radius: 999px; background: #e8f2e8; color: var(--green-dark); font-size: .73rem;
+    .intro { padding: clamp(24px, 5vw, 42px); background: linear-gradient(125deg, #fff, #edf6e9 58%, #e7f3fa 84%, #fff8df); border-top: 5px solid var(--yellow); }
+    .eyebrow { display: inline-flex; margin-bottom: 14px; padding: 7px 12px; border: 1px solid #e6d58a;
+      border-radius: 999px; background: #fff7d9; color: var(--green-dark); font-size: .73rem;
       font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     h1 { max-width: 760px; margin: 0 0 12px; color: var(--green-dark); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.12; }
     .intro p { max-width: 720px; margin: 0; color: var(--muted); line-height: 1.65; }
     h2 { margin: 0 0 16px; color: var(--green-dark); font-size: 1.18rem; }
-    .section h2 { padding-bottom: 11px; border-bottom: 1px solid #e1ece7; }
+    .section h2 { padding-bottom: 11px; border-bottom: 2px solid #e4eddf; }
     .field-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
     label.field { display: flex; flex-direction: column; gap: 7px; font-weight: 700; }
     input[type="text"], input[type="date"], select, textarea { width: 100%; min-height: 44px; padding: 10px 12px;
       border: 1px solid #b9d0c7; border-radius: 10px; background: #fff; color: var(--ink); font: inherit; }
     textarea { min-height: 130px; resize: vertical; }
-    :focus-visible { outline: 3px solid #4b9fc2; outline-offset: 2px; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
     .hint { margin: 0 0 14px; color: var(--muted); font-size: .9rem; }
     fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
     .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 10px; }
     .choice { display: flex; align-items: flex-start; gap: 10px; padding: 12px; border: 1px solid #dceae4;
       border-radius: 12px; background: var(--soft); line-height: 1.45; cursor: pointer; }
-    .choice:hover { border-color: #9dc4bd; background: #e9f4f1; }
+    .choice:hover { border-color: #8db9c2; background: #eaf4f5; }
     .choice input { flex: 0 0 auto; width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--green); }
     .choice span { display: block; }
     .choice small { display: block; margin-top: 3px; color: var(--muted); font-size: .8rem; }
@@ -59,7 +61,7 @@
     [hidden] { display: none !important; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0; }
     button { min-height: 46px; padding: 12px 18px; border: 0; border-radius: 11px; font: inherit; font-weight: 750; cursor: pointer; }
-    .print-button { background: linear-gradient(135deg, #2f8059, #216e98); color: white; box-shadow: 0 8px 18px rgba(31, 104, 100, .22); }
+    .print-button { background: linear-gradient(110deg, var(--green), var(--blue)); color: white; box-shadow: 0 8px 18px rgba(31, 104, 100, .22); border-bottom: 4px solid var(--yellow); }
     .reset-button { border: 1px solid #c5dcd5; background: #edf5f1; color: var(--green-dark); }
     button:hover { filter: brightness(1.04); transform: translateY(-1px); }
     .print-summary { display: none; }
@@ -76,7 +78,7 @@
       .intro, form, .actions { display: none !important; }
       main { width: 100%; max-width: none; }
       .print-summary { display: block !important; margin: 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: #fff; }
-      .summary-row strong { color: #174a32; }
+      .summary-row strong { color: #174e37; }
       * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     }
   </style>
@@ -134,7 +136,7 @@
         ["Renewable Energy Transition", "Shifting power grids from fossil fuels to solar, wind, and green hydrogen."],
         ["Sustainable Food Systems", "Approaches such as permaculture, local farming, and food-waste reduction."]
       ],
-      subject: ["Long Term Engineering", "Art", "Mathematics", "Science", "Technology", "Other"],
+      subject: ["Engineering", "Art", "Mathematics", "Science", "Technology", "Other"],
       competence: ["G1 Embodying Sustainability Values", "G1.1 Valuing sustainability", "G1.2 Supporting fairness", "G1.3 Promoting nature", "G2 Embracing Complexity in Sustainability", "G2.1 Systems thinking", "G2.2 Critical thinking", "G2.3 Problem framing", "G3 Envisioning Sustainable Futures", "G3.1 Futures literacy", "G3.2 Adaptability", "G3.3 Exploratory thinking", "G4 Acting for Sustainability", "G4.1 Political agency", "G4.2 Collective action", "G4.3 Individual initiative"]
     };
     function addChoices(containerId, items, name) {
