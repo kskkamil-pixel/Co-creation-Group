@@ -1,0 +1,14 @@
+{
+  "name": "co-creation-group-desktop",
+  "version": "1.0.0",
+  "description": "Desktop app for the Co-creation Group HTML page",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^31.7.1"
+  }
+}
