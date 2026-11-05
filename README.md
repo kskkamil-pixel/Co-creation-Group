@@ -1,2 +1,2 @@
-# STEAM-meets-GreenComp-Toolkit-Co-creation-Group
+Co-creation-Group
 work place
