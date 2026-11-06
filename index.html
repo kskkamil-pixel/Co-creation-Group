@@ -8,52 +8,76 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #20352a;
-      --muted: #526b70;
+      --ink: #1e302a;
+      --muted: #52675e;
       --green: #176b4a;
       --green-dark: #104c36;
-      --blue: #287ca3;
-      --yellow: #f0c84b;
-      --line: #cbdedb;
-      --soft: #f1f7f3;
-      --shadow: 0 12px 32px rgba(27, 55, 48, .11);
+      --line: #d7e8dd;
+      --soft: #f5faf6;
+      --shadow: 0 12px 32px rgba(27, 69, 49, .10);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background: #eaf3ed;
+      background: #edf6f1;
     }
+
     * { box-sizing: border-box; }
+
     body {
-      min-height: 100vh; margin: 0; padding: 32px 16px 56px;
-      background: radial-gradient(ellipse at 8% 5%, rgba(128, 190, 135, .40), transparent 30rem),
-        radial-gradient(ellipse at 92% 18%, rgba(91, 174, 211, .34), transparent 28rem),
-        radial-gradient(ellipse at 50% 100%, rgba(240, 200, 75, .20), transparent 34rem),
-        linear-gradient(140deg, #f1f8ed, #e6f1f8 58%, #fbf7e8);
+      min-height: 100vh;
+      margin: 0;
+      padding: 32px 16px 56px;
+      background:
+        radial-gradient(ellipse at 8% 5%, rgba(128, 203, 156, .45), transparent 30rem),
+        radial-gradient(ellipse at 92% 18%, rgba(105, 184, 218, .35), transparent 28rem),
+        linear-gradient(140deg, #f1faef, #eaf3ff 58%, #edf8f3);
     }
+
     main { width: min(100%, 980px); margin: 0 auto; }
     .intro, .section, .print-summary {
-      margin-bottom: 18px; padding: 24px; border: 1px solid rgba(199, 220, 212, .95);
-      border-radius: 18px; background: rgba(255, 255, 255, .95); box-shadow: var(--shadow);
+      margin-bottom: 18px;
+      padding: 24px;
+      border: 1px solid rgba(207, 226, 215, .95);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: var(--shadow);
     }
-    .intro { padding: clamp(24px, 5vw, 42px); background: linear-gradient(125deg, #fff, #edf6e9 58%, #e7f3fa 84%, #fff8df); border-top: 5px solid var(--yellow); }
-    .eyebrow { display: inline-flex; margin-bottom: 14px; padding: 7px 12px; border: 1px solid #e6d58a;
-      border-radius: 999px; background: #fff7d9; color: var(--green-dark); font-size: .73rem;
-      font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+
+    .intro { padding: clamp(24px, 5vw, 42px); background: linear-gradient(125deg, #fff, #eff9f1 72%, #edf6ff); }
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border: 1px solid #cfe3d6;
+      border-radius: 999px;
+      background: #e9f5ed;
+      color: var(--green-dark);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
     h1 { max-width: 760px; margin: 0 0 12px; color: var(--green-dark); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.12; }
     .intro p { max-width: 720px; margin: 0; color: var(--muted); line-height: 1.65; }
     h2 { margin: 0 0 16px; color: var(--green-dark); font-size: 1.18rem; }
-    .section h2 { padding-bottom: 11px; border-bottom: 2px solid #e4eddf; }
+    .section h2 { padding-bottom: 11px; border-bottom: 1px solid #e6efe9; }
     .field-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
     label.field { display: flex; flex-direction: column; gap: 7px; font-weight: 700; }
-    input[type="text"], input[type="date"], select, textarea { width: 100%; min-height: 44px; padding: 10px 12px;
-      border: 1px solid #b9d0c7; border-radius: 10px; background: #fff; color: var(--ink); font: inherit; }
+    input[type="text"], input[type="date"], select, textarea {
+      width: 100%; min-height: 44px; padding: 10px 12px;
+      border: 1px solid #b8d1c1; border-radius: 10px;
+      background: #fff; color: var(--ink); font: inherit;
+    }
     textarea { min-height: 130px; resize: vertical; }
-    :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+    :focus-visible { outline: 3px solid #59a9d2; outline-offset: 2px; }
     .hint { margin: 0 0 14px; color: var(--muted); font-size: .9rem; }
     fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
     .choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 10px; }
-    .choice { display: flex; align-items: flex-start; gap: 10px; padding: 12px; border: 1px solid #dceae4;
-      border-radius: 12px; background: var(--soft); line-height: 1.45; cursor: pointer; }
-    .choice:hover { border-color: #8db9c2; background: #eaf4f5; }
+    .choice {
+      display: flex; align-items: flex-start; gap: 10px; padding: 12px;
+      border: 1px solid #e1eee6; border-radius: 12px; background: var(--soft);
+      line-height: 1.45; cursor: pointer;
+    }
+    .choice:hover { border-color: #b7d7c3; background: #f0f8f2; }
     .choice input { flex: 0 0 auto; width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--green); }
     .choice span { display: block; }
     .choice small { display: block; margin-top: 3px; color: var(--muted); font-size: .8rem; }
@@ -61,17 +85,23 @@
     [hidden] { display: none !important; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0; }
     button { min-height: 46px; padding: 12px 18px; border: 0; border-radius: 11px; font: inherit; font-weight: 750; cursor: pointer; }
-    .print-button { background: linear-gradient(110deg, var(--green), var(--blue)); color: white; box-shadow: 0 8px 18px rgba(31, 104, 100, .22); border-bottom: 4px solid var(--yellow); }
-    .reset-button { border: 1px solid #c5dcd5; background: #edf5f1; color: var(--green-dark); }
+    .print-button, .doc-button { background: linear-gradient(135deg, #1d8056, #104c36); color: white; box-shadow: 0 8px 18px rgba(23, 107, 74, .22); }
+    .reset-button { border: 1px solid #c9ded0; background: #edf5ef; color: var(--green-dark); }
     button:hover { filter: brightness(1.04); transform: translateY(-1px); }
     .print-summary { display: none; }
     .print-summary h1 { margin-bottom: 22px; font-size: 25pt; }
-    .summary-row { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #e1e9e6; break-inside: avoid; }
+    .summary-row { margin-bottom: 15px; padding-bottom: 12px; border-bottom: 1px solid #e4e9e5; break-inside: avoid; }
     .summary-row strong { display: block; margin-bottom: 5px; color: var(--green-dark); }
     .summary-list { margin: 0; padding-left: 22px; line-height: 1.5; }
     .summary-list li { margin-bottom: 3px; }
     .summary-notes { margin: 0; white-space: pre-wrap; line-height: 1.55; }
-    @media (max-width: 540px) { body { padding: 16px 11px 36px; } .intro, .section { padding: 19px 16px; border-radius: 15px; } .actions button { width: 100%; } }
+
+    @media (max-width: 540px) {
+      body { padding: 16px 11px 36px; }
+      .intro, .section { padding: 19px 16px; border-radius: 15px; }
+      .actions button { width: 100%; }
+    }
+
     @media print {
       @page { margin: 16mm; }
       body { padding: 0; background: #fff; color: #17231d; }
@@ -90,29 +120,85 @@
       <h1>STEAM meets GreenComp Toolkit Co-creation Group</h1>
       <p>Use this form during your meeting to record lesson details, climate focus, STEAM subject areas, and GreenComp competences. Your entries stay in this browser; use the print button to save or print a summary.</p>
     </header>
+
     <form id="lesson-form">
-      <section class="section" aria-labelledby="lesson-info-heading"><h2 id="lesson-info-heading">Lesson information</h2>
+      <section class="section" aria-labelledby="lesson-info-heading">
+        <h2 id="lesson-info-heading">Lesson information</h2>
         <div class="field-grid">
-          <label class="field">Authors<input type="text" name="authors" autocomplete="name" placeholder="Enter author name(s)" required></label>
-          <label class="field">Event date<input type="date" name="eventDate" min="2026-10-30" max="2027-10-06" required></label>
-          <label class="field">Lesson time<select name="lessonTime" required><option value="">Select lesson time</option><option>2–4 lessons</option><option>40 minutes</option><option>40 + 40 minutes</option></select></label>
+          <label class="field">Authors
+            <input type="text" name="authors" autocomplete="name" placeholder="Enter author name(s)" required>
+          </label>
+          <label class="field">Event date
+            <input type="date" name="eventDate" min="2026-10-30" max="2027-10-06" required>
+          </label>
+          <label class="field">Lesson time
+            <select name="lessonTime" required>
+              <option value="">Select lesson time</option>
+              <option value="2–4 lessons">2–4 lessons</option>
+              <option value="40 minutes">40 minutes</option>
+              <option value="40 + 40 minutes">40 + 40 minutes</option>
+            </select>
+          </label>
         </div>
       </section>
-      <section class="section" aria-labelledby="age-heading"><h2 id="age-heading">Age group</h2><p class="hint">Select all age groups this lesson is designed for.</p><fieldset><div class="choices" id="age-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="place-heading"><h2 id="place-heading">Where will the lesson take place?</h2><fieldset><div class="choices" id="place-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="climate-heading"><h2 id="climate-heading">Climate change subject</h2><p class="hint">Select one or more topics that the lesson addresses.</p><fieldset><div class="choices" id="climate-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="subject-heading"><h2 id="subject-heading">STEAM subject areas</h2><fieldset><div class="choices" id="subject-options"></div></fieldset>
-        <label class="field other-subject" id="other-subject-wrap" hidden>Specify another subject<input type="text" name="otherSubject" placeholder="Enter another subject area"></label>
+
+      <section class="section" aria-labelledby="age-heading">
+        <h2 id="age-heading">Age group</h2>
+        <p class="hint">Select all age groups this lesson is designed for.</p>
+        <fieldset><legend class="visually-hidden" hidden>Age group options</legend><div class="choices" id="age-options"></div></fieldset>
       </section>
-      <section class="section" aria-labelledby="competence-heading"><h2 id="competence-heading">GreenComp competences</h2><p class="hint">Select the competence areas and specific competences connected to the lesson.</p><fieldset><div class="choices" id="competence-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="notes-heading"><h2 id="notes-heading">Additional notes</h2><label class="field" for="notes">Notes<textarea id="notes" name="notes" placeholder="Add ideas, materials, questions, or other relevant information"></textarea></label></section>
-      <div class="actions"><button class="print-button" type="button" id="make-pdf">Prepare PDF / Print</button><button class="reset-button" type="reset">Clear form</button></div>
+
+      <section class="section" aria-labelledby="place-heading">
+        <h2 id="place-heading">Where will the lesson take place?</h2>
+        <fieldset><legend class="visually-hidden" hidden>Lesson location options</legend><div class="choices" id="place-options"></div></fieldset>
+      </section>
+
+      <section class="section" aria-labelledby="climate-heading">
+        <h2 id="climate-heading">Climate change subject</h2>
+        <p class="hint">Select one or more topics that the lesson addresses.</p>
+        <fieldset><legend class="visually-hidden" hidden>Climate change topic options</legend><div class="choices" id="climate-options"></div></fieldset>
+      </section>
+
+      <section class="section" aria-labelledby="subject-heading">
+        <h2 id="subject-heading">STEAM subject areas</h2>
+        <fieldset><legend class="visually-hidden" hidden>Subject area options</legend><div class="choices" id="subject-options"></div></fieldset>
+        <label class="field other-subject" id="other-subject-wrap" hidden>Specify another subject
+          <input type="text" name="otherSubject" placeholder="Enter another subject area">
+        </label>
+      </section>
+
+      <section class="section" aria-labelledby="competence-heading">
+        <h2 id="competence-heading">GreenComp competences</h2>
+        <p class="hint">Select the competence areas and specific competences connected to the lesson.</p>
+        <fieldset><legend class="visually-hidden" hidden>GreenComp competence options</legend><div class="choices" id="competence-options"></div></fieldset>
+      </section>
+
+      <section class="section" aria-labelledby="notes-heading">
+        <h2 id="notes-heading">Additional notes</h2>
+        <label class="field" for="notes">Notes</label>
+        <textarea id="notes" name="notes" placeholder="Add ideas, materials, questions, or other relevant information"></textarea>
+      </section>
+
+      <div class="actions">
+        <button class="print-button" type="button" id="make-pdf">Prepare PDF / Print</button>
+        <button class="doc-button" type="button" id="download-doc">Download Word</button>
+        <button class="reset-button" type="reset">Clear form</button>
+      </div>
     </form>
+
     <section class="print-summary" id="print-summary" aria-live="polite"></section>
   </main>
+
   <script>
     const groups = {
-      age: ["(0–5) Preschool / Pre-K", "(5–6) Kindergarten", "(6–11) Elementary School", "(11–14) Middle School / Junior High", "(14–18) High School", "(18+) College / University"],
+      age: [
+        "(0–5) Preschool / Pre-K",
+        "(5–6) Kindergarten",
+        "(6–11) Elementary School",
+        "(11–14) Middle School / Junior High",
+        "(14–18) High School",
+        "(18+) College / University"
+      ],
       place: ["In the classroom", "Laboratory activity", "Outdoor activity"],
       climate: [
         ["Biodiversity Loss & Extinction Crisis", "Habitat disruption causing species to go extinct at unprecedented rates."],
@@ -137,58 +223,196 @@
         ["Sustainable Food Systems", "Approaches such as permaculture, local farming, and food-waste reduction."]
       ],
       subject: ["Engineering", "Art", "Mathematics", "Science", "Technology", "Other"],
-      competence: ["G1 Embodying Sustainability Values", "G1.1 Valuing sustainability", "G1.2 Supporting fairness", "G1.3 Promoting nature", "G2 Embracing Complexity in Sustainability", "G2.1 Systems thinking", "G2.2 Critical thinking", "G2.3 Problem framing", "G3 Envisioning Sustainable Futures", "G3.1 Futures literacy", "G3.2 Adaptability", "G3.3 Exploratory thinking", "G4 Acting for Sustainability", "G4.1 Political agency", "G4.2 Collective action", "G4.3 Individual initiative"]
+      competence: [
+        "G1 Embodying Sustainability Values",
+        "G1.1 Valuing sustainability",
+        "G1.2 Supporting fairness",
+        "G1.3 Promoting nature",
+        "G2 Embracing Complexity in Sustainability",
+        "G2.1 Systems thinking",
+        "G2.2 Critical thinking",
+        "G2.3 Problem framing",
+        "G3 Envisioning Sustainable Futures",
+        "G3.1 Futures literacy",
+        "G3.2 Adaptability",
+        "G3.3 Exploratory thinking",
+        "G4 Acting for Sustainability",
+        "G4.1 Political agency",
+        "G4.2 Collective action",
+        "G4.3 Individual initiative"
+      ]
     };
+
     function addChoices(containerId, items, name) {
       const container = document.getElementById(containerId);
       for (const item of items) {
         const title = Array.isArray(item) ? item[0] : item;
         const description = Array.isArray(item) ? item[1] : "";
-        const label = document.createElement("label"); label.className = "choice";
-        const input = document.createElement("input"); input.type = "checkbox"; input.name = name; input.value = title;
-        const text = document.createElement("span"); text.append(document.createTextNode(title));
-        if (description) { const detail = document.createElement("small"); detail.textContent = description; text.append(detail); }
-        label.append(input, text); container.append(label);
+        const label = document.createElement("label");
+        label.className = "choice";
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.name = name;
+        input.value = title;
+        const text = document.createElement("span");
+        text.append(document.createTextNode(title));
+        if (description) {
+          const detail = document.createElement("small");
+          detail.textContent = description;
+          text.append(detail);
+        }
+        label.append(input, text);
+        container.append(label);
       }
     }
-    addChoices("age-options", groups.age, "age"); addChoices("place-options", groups.place, "place");
-    addChoices("climate-options", groups.climate, "climateSubject"); addChoices("subject-options", groups.subject, "subject");
+
+    addChoices("age-options", groups.age, "age");
+    addChoices("place-options", groups.place, "place");
+    addChoices("climate-options", groups.climate, "climateSubject");
+    addChoices("subject-options", groups.subject, "subject");
     addChoices("competence-options", groups.competence, "competence");
+
     const form = document.getElementById("lesson-form");
     const otherSubjectWrap = document.getElementById("other-subject-wrap");
+
     form.addEventListener("change", event => {
-      if (event.target.name === "subject") otherSubjectWrap.hidden = ![...form.querySelectorAll('input[name="subject"]:checked')].some(input => input.value === "Other");
+      if (event.target.name === "subject") {
+        const otherSelected = [...form.querySelectorAll('input[name="subject"]:checked')]
+          .some(input => input.value === "Other");
+        otherSubjectWrap.hidden = !otherSelected;
+      }
     });
-    form.addEventListener("reset", () => { otherSubjectWrap.hidden = true; document.getElementById("print-summary").replaceChildren(); });
+
+    form.addEventListener("reset", () => {
+      otherSubjectWrap.hidden = true;
+      document.getElementById("print-summary").replaceChildren();
+    });
+
+    function getFormSummary() {
+      const data = new FormData(form);
+      const selected = name => [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(input => input.value);
+      const subjects = selected("subject");
+      const otherSubject = (data.get("otherSubject") || "").trim();
+      if (subjects.includes("Other") && otherSubject) {
+        subjects[subjects.indexOf("Other")] = `Other: ${otherSubject}`;
+      }
+
+      const date = data.get("eventDate");
+      const formattedDate = date
+        ? new Intl.DateTimeFormat(undefined, { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${date}T12:00:00`))
+        : "—";
+
+      return {
+        authors: (data.get("authors") || "").trim(),
+        eventDate: formattedDate,
+        lessonTime: data.get("lessonTime") || "—",
+        age: selected("age"),
+        place: selected("place"),
+        climate: selected("climateSubject"),
+        subjects,
+        competences: selected("competence"),
+        notes: (data.get("notes") || "").trim()
+      };
+    }
+
     function addSummaryRow(container, title, values, isNotes = false) {
-      const row = document.createElement("div"); row.className = "summary-row";
-      const heading = document.createElement("strong"); heading.textContent = title; row.append(heading);
-      if (isNotes) { const notes = document.createElement("p"); notes.className = "summary-notes"; notes.textContent = values || "—"; row.append(notes); }
-      else {
-        const list = document.createElement("ul"); list.className = "summary-list";
+      const row = document.createElement("div");
+      row.className = "summary-row";
+      const heading = document.createElement("strong");
+      heading.textContent = title;
+      row.append(heading);
+
+      if (isNotes) {
+        const notes = document.createElement("p");
+        notes.className = "summary-notes";
+        notes.textContent = values || "—";
+        row.append(notes);
+      } else {
+        const list = document.createElement("ul");
+        list.className = "summary-list";
         const entries = Array.isArray(values) ? values : [values || "—"];
-        for (const value of entries.filter(Boolean)) { const item = document.createElement("li"); item.textContent = value; list.append(item); }
-        if (!list.children.length) { const item = document.createElement("li"); item.textContent = "—"; list.append(item); }
+        for (const value of entries.filter(Boolean)) {
+          const item = document.createElement("li");
+          item.textContent = value;
+          list.append(item);
+        }
+        if (!list.children.length) {
+          const item = document.createElement("li");
+          item.textContent = "—";
+          list.append(item);
+        }
         row.append(list);
       }
       container.append(row);
     }
+
     document.getElementById("make-pdf").addEventListener("click", () => {
       if (!form.reportValidity()) return;
-      const data = new FormData(form);
-      const selected = name => [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(input => input.value);
-      const summary = document.getElementById("print-summary"); summary.replaceChildren();
-      const title = document.createElement("h1"); title.textContent = "STEAM meets GreenComp Toolkit Co-creation Group"; summary.append(title);
-      const date = data.get("eventDate");
-      const formattedDate = date ? new Intl.DateTimeFormat(undefined, { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${date}T12:00:00`)) : "—";
-      addSummaryRow(summary, "Authors", data.get("authors").trim()); addSummaryRow(summary, "Event date", formattedDate);
-      addSummaryRow(summary, "Age group", selected("age")); addSummaryRow(summary, "Where taking place", selected("place"));
-      addSummaryRow(summary, "Climate change subject", selected("climateSubject")); addSummaryRow(summary, "Lesson time", data.get("lessonTime"));
-      const subjects = selected("subject"); const otherSubject = (data.get("otherSubject") || "").trim();
-      if (subjects.includes("Other") && otherSubject) subjects[subjects.indexOf("Other")] = `Other: ${otherSubject}`;
-      addSummaryRow(summary, "Subject areas", subjects); addSummaryRow(summary, "GreenComp competences", selected("competence"));
-      addSummaryRow(summary, "Additional notes", (data.get("notes") || "").trim(), true); window.print();
+      const summary = document.getElementById("print-summary");
+      summary.replaceChildren();
+
+      const title = document.createElement("h1");
+      title.textContent = "STEAM meets GreenComp Toolkit Co-creation Group";
+      summary.append(title);
+
+      const data = getFormSummary();
+      addSummaryRow(summary, "Authors", data.authors);
+      addSummaryRow(summary, "Event date", data.eventDate);
+      addSummaryRow(summary, "Age group", data.age);
+      addSummaryRow(summary, "Where taking place", data.place);
+      addSummaryRow(summary, "Climate change subject", data.climate);
+      addSummaryRow(summary, "Lesson time", data.lessonTime);
+      addSummaryRow(summary, "Subject areas", data.subjects);
+      addSummaryRow(summary, "GreenComp competences", data.competences);
+      addSummaryRow(summary, "Additional notes", data.notes, true);
+      window.print();
     });
+
+    document.getElementById("download-doc").addEventListener("click", () => {
+      if (!form.reportValidity()) return;
+
+      const data = getFormSummary();
+      const html = `
+        <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+        <head><meta charset="utf-8"><title>STEAM meets GreenComp Toolkit Co-creation Group</title></head>
+        <body style="font-family: Arial, sans-serif; background:#edf5ee; color:#1e302a; padding:30px;">
+          <div style="max-width:850px; margin:0 auto; background:#ffffff; border:2px solid #cfe3d6; border-radius:18px; padding:32px; box-shadow:0 10px 28px rgba(27,69,49,.10);">
+            <div style="display:inline-block; background:#e9f5ed; color:#104c36; border:1px solid #cfe3d6; border-radius:999px; padding:8px 14px; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px;">STEAM · GreenComp · Co-creation</div>
+            <h1 style="margin:0 0 18px; color:#104c36; font-size:30px;">STEAM meets GreenComp Toolkit Co-creation Group</h1>
+            <table style="width:100%; border-collapse:collapse; font-size:15px;">
+              <tr><td style="font-weight:bold; padding:8px 0; width:160px;">Authors</td><td style="padding:8px 0;">${escapeHtml(data.authors || '—')}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0;">Event date</td><td style="padding:8px 0;">${escapeHtml(data.eventDate)}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0;">Lesson time</td><td style="padding:8px 0;">${escapeHtml(data.lessonTime)}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0; vertical-align:top;">Age group</td><td style="padding:8px 0;">${escapeHtml((data.age || ['—']).join('<br>'))}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0; vertical-align:top;">Where taking place</td><td style="padding:8px 0;">${escapeHtml((data.place || ['—']).join('<br>'))}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0; vertical-align:top;">Climate subject</td><td style="padding:8px 0;">${escapeHtml((data.climate || ['—']).join('<br>'))}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0; vertical-align:top;">Subject areas</td><td style="padding:8px 0;">${escapeHtml((data.subjects || ['—']).join('<br>'))}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0; vertical-align:top;">GreenComp competences</td><td style="padding:8px 0;">${escapeHtml((data.competences || ['—']).join('<br>'))}</td></tr>
+              <tr><td style="font-weight:bold; padding:8px 0; vertical-align:top;">Additional notes</td><td style="padding:8px 0; white-space:pre-wrap;">${escapeHtml(data.notes || '—')}</td></tr>
+            </table>
+          </div>
+        </body>
+        </html>`;
+
+      const blob = new Blob([html], { type: 'application/msword' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'greencomp-form.doc';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
   </script>
 </body>
 </html>
