@@ -38,9 +38,6 @@
     .doc-button { background:linear-gradient(135deg,#1d8056,#104c36); color:#fff; box-shadow:0 8px 18px rgba(23,107,74,.22); }
     .reset-button { border:1px solid #c9ded0; background:#edf5ef; color:var(--green-dark); }
     button:hover { filter:brightness(1.04); transform:translateY(-1px); }
-    .competence-overview { margin:0 0 18px; padding-left:20px; color:var(--ink); line-height:1.7; }
-    .competence-overview strong { color:var(--green-dark); }
-    .competence-overview li + li { margin-top:8px; }
     @media(max-width:540px) { body{padding:16px 11px 36px}.intro,.section{padding:19px 16px;border-radius:15px}.actions button{width:100%} }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-x/X8kF2abf7s9h29KpVJtgH4cXzQeR3Xn14D9l8oJkq6o4JbX4tHcB8Y4YBf7kN2L4f2Z5bH8V8e3F0Q5k5qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -58,27 +55,7 @@
       <section class="section" aria-labelledby="place-heading"><h2 id="place-heading">Where will the lesson take place?</h2><fieldset><div class="choices" id="place-options"></div></fieldset></section>
       <section class="section" aria-labelledby="climate-heading"><h2 id="climate-heading">Climate change subject</h2><p class="hint">Select one or more topics that the lesson addresses.</p><fieldset><div class="choices" id="climate-options"></div></fieldset></section>
       <section class="section" aria-labelledby="subject-heading"><h2 id="subject-heading">STEAM subject areas</h2><fieldset><div class="choices" id="subject-options"></div></fieldset><label class="field other-subject" id="other-subject-wrap" hidden>Specify another subject<input type="text" name="otherSubject" placeholder="Enter another subject area"></label></section>
-      <section class="section" aria-labelledby="competence-heading"><h2 id="competence-heading">GreenComp competences</h2><p class="hint">Select the competence areas and specific competences connected to the lesson.</p><p class="framework-link">For more information, see the <a href="https://op.europa.eu/en/publication-detail/-/publication/bc83061d-74ec-11ec-9136-01aa75ed71a1" target="_blank" rel="noopener noreferrer">EU GreenComp publication</a> or the <a href="https://e4c.esn.eu/" target="_blank" rel="noopener noreferrer">E4C GreenComp framework</a>.</p>
-        <ul class="competence-overview">
-          <li><strong>G1 Embodying Sustainability Values</strong> — Sustainability is a value that supports fairness, respect for nature, and a responsible relationship with others and the environment.</li>
-          <li><strong>G1.1 Valuing sustainability</strong> — Recognising the importance of living and acting in ways that protect future generations and the planet.</li>
-          <li><strong>G1.2 Supporting fairness</strong> — Understanding that environmental problems and solutions affect people unevenly, and working to reduce unfairness.</li>
-          <li><strong>G1.3 Promoting nature</strong> — Valuing biodiversity, ecosystems, and healthy natural environments.</li>
-          <li><strong>G2 Embracing Complexity in Sustainability</strong> — Sustainability challenges are interconnected and need careful analysis.</li>
-          <li><strong>G2.1 Systems thinking</strong> — Seeing how environmental, social, economic, and technological factors influence one another.</li>
-          <li><strong>G2.2 Critical thinking</strong> — Questioning assumptions, evidence, and different perspectives.</li>
-          <li><strong>G2.3 Problem framing</strong> — Defining sustainability issues clearly so that solutions are meaningful and relevant.</li>
-          <li><strong>G3 Envisioning Sustainable Futures</strong> — Imagining better futures and preparing for change.</li>
-          <li><strong>G3.1 Futures literacy</strong> — Thinking about possible, probable, and preferred futures.</li>
-          <li><strong>G3.2 Adaptability</strong> — Adjusting ideas and actions when new information or conditions appear.</li>
-          <li><strong>G3.3 Exploratory thinking</strong> — Considering multiple ideas, alternatives, and creative solutions.</li>
-          <li><strong>G4 Acting for Sustainability</strong> — Turning sustainability knowledge into practical action.</li>
-          <li><strong>G4.1 Political agency</strong> — Understanding how decisions are made and how people can influence change at different levels.</li>
-          <li><strong>G4.2 Collective action</strong> — Working together with others to achieve shared sustainability goals.</li>
-          <li><strong>G4.3 Individual initiative</strong> — Taking personal responsibility and making everyday sustainable choices.</li>
-        </ul>
-        <fieldset><div class="choices" id="competence-options"></div></fieldset>
-      </section>
+      <section class="section" aria-labelledby="competence-heading"><h2 id="competence-heading">GreenComp competences</h2><p class="hint">Select the competence areas and specific competences connected to the lesson. Each choice includes a short clue to help you decide.</p><p class="framework-link">For more information, see the <a href="https://op.europa.eu/en/publication-detail/-/publication/bc83061d-74ec-11ec-9136-01aa75ed71a1" target="_blank" rel="noopener noreferrer">EU GreenComp publication</a> or the <a href="https://e4c.esn.eu/" target="_blank" rel="noopener noreferrer">E4C GreenComp framework</a>.</p><fieldset><div class="choices" id="competence-options"></div></fieldset></section>
       <section class="section" aria-labelledby="notes-heading"><h2 id="notes-heading">Additional notes</h2><label class="field" for="notes">Notes<textarea id="notes" name="notes" placeholder="Add ideas, materials, questions, or other relevant information"></textarea></label></section>
       <div class="actions"><button class="doc-button" type="button" id="download-doc">Download DOCX</button><button class="reset-button" type="reset">Clear form</button></div>
     </form>
@@ -110,7 +87,24 @@
         ["Sustainable Food Systems", "Approaches such as permaculture, local farming, and food-waste reduction."]
       ],
       subject: ["Engineering", "Art", "Mathematics", "Science", "Technology", "Other"],
-      competence: ["G1 Embodying Sustainability Values", "G1.1 Valuing sustainability", "G1.2 Supporting fairness", "G1.3 Promoting nature", "G2 Embracing Complexity in Sustainability", "G2.1 Systems thinking", "G2.2 Critical thinking", "G2.3 Problem framing", "G3 Envisioning Sustainable Futures", "G3.1 Futures literacy", "G3.2 Adaptability", "G3.3 Exploratory thinking", "G4 Acting for Sustainability", "G4.1 Political agency", "G4.2 Collective action", "G4.3 Individual initiative"]
+      competence: [
+        ["G1 Embodying Sustainability Values", "Clue: Does the lesson help learners value sustainability, fairness, and respect for nature?"],
+        ["G1.1 Valuing sustainability", "Clue: Do learners consider why sustainability matters for people today and in the future?"],
+        ["G1.2 Supporting fairness", "Clue: Do learners consider who is affected and whether impacts and solutions are fair?"],
+        ["G1.3 Promoting nature", "Clue: Does the lesson encourage care for biodiversity, ecosystems, or the natural world?"],
+        ["G2 Embracing Complexity in Sustainability", "Clue: Does the lesson explore how sustainability issues have connected causes and effects?"],
+        ["G2.1 Systems thinking", "Clue: Do learners explore links between people, nature, society, and the economy?"],
+        ["G2.2 Critical thinking", "Clue: Do learners question claims, check evidence, or compare viewpoints?"],
+        ["G2.3 Problem framing", "Clue: Do learners define the problem, its causes, and who is affected before proposing solutions?"],
+        ["G3 Envisioning Sustainable Futures", "Clue: Does the lesson invite learners to imagine and prepare for sustainable futures?"],
+        ["G3.1 Futures literacy", "Clue: Do learners think about possible futures and how choices today shape them?"],
+        ["G3.2 Adaptability", "Clue: Do learners adjust their ideas or plans when circumstances or evidence change?"],
+        ["G3.3 Exploratory thinking", "Clue: Do learners explore different possibilities and creative solutions?"],
+        ["G4 Acting for Sustainability", "Clue: Does the lesson turn sustainability learning into practical action?"],
+        ["G4.1 Political agency", "Clue: Do learners consider how decisions are made and how people can influence them?"],
+        ["G4.2 Collective action", "Clue: Do learners work with others toward a shared sustainability goal?"],
+        ["G4.3 Individual initiative", "Clue: Do learners take personal responsibility or start a practical action themselves?"]
+      ]
     };
     function addChoices(containerId, items, name) {
       const container = document.getElementById(containerId);
