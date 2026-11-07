@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#176b4a">
   <title>STEAM meets GreenComp Toolkit Co-creation Group</title>
   <style>
-    :root { color-scheme: light; --ink:#1e302a; --muted:#52675e; --green:#176b4a; --green-dark:#104c36; --soft:#f5faf6; --shadow:0 12px 32px rgba(27,69,49,.10); font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:#edf6f1; }
+    :root { color-scheme: light; --ink:#1e302a; --muted:#52675e; --green:#176b4a; --green-dark:#104c36; --soft:#f5faf6; --shadow:0 12px 32px rgba(27,69,49,.10); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
     * { box-sizing:border-box; }
-    body { min-height:100vh; margin:0; padding:32px 16px 56px; background:radial-gradient(ellipse at 8% 5%,rgba(128,203,156,.45),transparent 30rem),radial-gradient(ellipse at 92% 18%,rgba(105,184,150,.25),transparent 22rem),#edf6f1; }
+    body { min-height:100vh; margin:0; padding:32px 16px 56px; background:radial-gradient(ellipse at 8% 5%,rgba(128,203,156,.45),transparent 30rem),radial-gradient(ellipse at 92% 18%,rgba(105,184,150,.22),transparent 22rem),#edf6f1; }
     main { width:min(100%,980px); margin:0 auto; }
     .intro,.section { margin-bottom:18px; padding:24px; border:1px solid rgba(207,226,215,.95); border-radius:18px; background:rgba(255,255,255,.92); box-shadow:var(--shadow); }
     .intro { padding:clamp(24px,5vw,42px); background:linear-gradient(125deg,#fff,#eff9f1 72%,#edf6ff); }
@@ -32,6 +32,8 @@
     .choice span,.choice small { display:block; }
     .choice small { margin-top:3px; color:var(--muted); font-size:.8rem; }
     .other-subject { margin-top:16px; }
+    .assessment-tools { margin-top:18px; }
+    .assessment-tools .choices { margin-top:8px; }
     [hidden] { display:none!important; }
     .actions { display:flex; flex-wrap:wrap; gap:12px; margin:22px 0; }
     button { min-height:46px; padding:12px 18px; border:0; border-radius:11px; font:inherit; font-weight:750; cursor:pointer; }
@@ -44,20 +46,83 @@
 </head>
 <body>
   <main>
-    <header class="intro"><div class="eyebrow">STEAM · GreenComp · Co-creation</div><h1>STEAM meets GreenComp Toolkit Co-creation Group</h1><p>Use this form during your meeting to record lesson details, climate focus, STEAM subject areas, and GreenComp competences. Your entries stay in this browser; download your completed summary as a Word DOCX file.</p></header>
+    <header class="intro">
+      <div class="eyebrow">STEAM · GreenComp · Co-creation</div>
+      <h1>STEAM meets GreenComp Toolkit Co-creation Group</h1>
+      <p>Use this form during your meeting to record lesson details, climate focus, STEAM subject areas, and GreenComp competences. Your entries stay in this browser; download your completed summary as a Word DOCX file.</p>
+    </header>
     <form id="lesson-form">
-      <section class="section" aria-labelledby="lesson-info-heading"><h2 id="lesson-info-heading">Lesson information</h2><div class="field-grid">
-        <label class="field">Authors<input type="text" name="authors" autocomplete="name" placeholder="Enter author name(s)" required></label>
-        <label class="field">Event date<input type="date" name="eventDate" min="2026-10-30" max="2027-10-06" required></label>
-        <label class="field">Lesson time<select name="lessonTime" required><option value="">Select lesson time</option><option>2–4 lessons</option><option>40 minutes</option><option>40 + 40 minutes</option></select></label>
-      </div></section>
-      <section class="section" aria-labelledby="age-heading"><h2 id="age-heading">Age group</h2><p class="hint">Select all age groups this lesson is designed for.</p><fieldset><div class="choices" id="age-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="place-heading"><h2 id="place-heading">Where will the lesson take place?</h2><fieldset><div class="choices" id="place-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="climate-heading"><h2 id="climate-heading">Climate change subject</h2><p class="hint">Select one or more topics that the lesson addresses.</p><fieldset><div class="choices" id="climate-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="subject-heading"><h2 id="subject-heading">STEAM subject areas</h2><fieldset><div class="choices" id="subject-options"></div></fieldset><label class="field other-subject" id="other-subject-wrap" hidden>Specify another subject<input type="text" name="otherSubject" placeholder="Enter another subject area"></label></section>
-      <section class="section" aria-labelledby="competence-heading"><h2 id="competence-heading">GreenComp competences</h2><p class="hint">Select the competence areas and specific competences connected to the lesson. Each choice includes a short clue to help you decide.</p><p class="framework-link">For more information, see the <a href="https://op.europa.eu/en/publication-detail/-/publication/bc83061d-74ec-11ec-9136-01aa75ed71a1" target="_blank" rel="noopener noreferrer">EU GreenComp publication</a> or the <a href="https://e4c.esn.eu/" target="_blank" rel="noopener noreferrer">E4C GreenComp framework</a>.</p><fieldset><div class="choices" id="competence-options"></div></fieldset></section>
-      <section class="section" aria-labelledby="notes-heading"><h2 id="notes-heading">Additional notes</h2><label class="field" for="notes">Notes<textarea id="notes" name="notes" placeholder="Add ideas, materials, questions, or other relevant information"></textarea></label></section>
-      <div class="actions"><button class="doc-button" type="button" id="download-doc">Download DOCX</button><button class="reset-button" type="reset">Clear form</button></div>
+      <section class="section" aria-labelledby="lesson-info-heading">
+        <h2 id="lesson-info-heading">Lesson information</h2>
+        <div class="field-grid">
+          <label class="field">Authors<input type="text" name="authors" autocomplete="name" placeholder="Enter author name(s)" required></label>
+          <label class="field">Event date<input type="date" name="eventDate" min="2026-10-30" max="2027-10-06" required></label>
+          <label class="field">Lesson time<select name="lessonTime" required><option value="">Select lesson time</option><option>2–4 lessons</option><option>40 minutes</option><option>40 + 40 minutes</option></select></label>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="age-heading">
+        <h2 id="age-heading">Age group</h2>
+        <p class="hint">Select all age groups this lesson is designed for.</p>
+        <fieldset><div class="choices" id="age-options"></div></fieldset>
+      </section>
+
+      <section class="section" aria-labelledby="place-heading">
+        <h2 id="place-heading">Where will the lesson take place?</h2>
+        <fieldset><div class="choices" id="place-options"></div></fieldset>
+      </section>
+
+      <section class="section" aria-labelledby="climate-heading">
+        <h2 id="climate-heading">Climate change subject</h2>
+        <p class="hint">Select one or more topics that the lesson addresses.</p>
+        <fieldset><div class="choices" id="climate-options"></div></fieldset>
+      </section>
+
+      <section class="section" aria-labelledby="subject-heading">
+        <h2 id="subject-heading">STEAM subject areas</h2>
+        <fieldset><div class="choices" id="subject-options"></div></fieldset>
+        <label class="field other-subject" id="other-subject-wrap" hidden>
+          Specify another subject
+          <input type="text" name="otherSubject" placeholder="Enter another subject area">
+        </label>
+      </section>
+
+      <section class="section" aria-labelledby="competence-heading">
+        <h2 id="competence-heading">GreenComp competences</h2>
+        <p class="hint">Select the competence areas and specific competences connected to the lesson. Each choice includes a short clue to help you decide.</p>
+        <p class="framework-link">For more information, see the <a href="https://op.europa.eu/en/publication-detail/-/publication/bc83061d-74ec-11ec-9136-01aa75ed71a1" target="_blank" rel="noopener noreferrer">EU GreenComp publication</a> or the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer">E4C GreenComp framework</a>.</p>
+        <fieldset><div class="choices" id="competence-options"></div></fieldset>
+      </section>
+
+      <section class="section" aria-labelledby="notes-heading">
+        <h2 id="notes-heading">Additional notes</h2>
+        <label class="field" for="notes">
+          Notes
+          <textarea id="notes" name="notes" placeholder="Add ideas, materials, questions, or other relevant information"></textarea>
+        </label>
+
+        <div class="assessment-tools">
+          <p class="hint">Select the assessment methods used in this lesson.</p>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="assessment" value="Observation"><span>Observation<small>Teacher notes on learner participation and engagement.</small></span></label>
+            <label class="choice"><input type="checkbox" name="assessment" value="Peer feedback"><span>Peer feedback<small>Students share strengths and one supportive suggestion.</small></span></label>
+            <label class="choice"><input type="checkbox" name="assessment" value="Presentation"><span>Presentation<small>Students explain their learning, process, and conclusions.</small></span></label>
+            <label class="choice"><input type="checkbox" name="assessment" value="Prototype testing"><span>Prototype testing<small>Testing a model or solution and recording improvements.</small></span></label>
+            <label class="choice"><input type="checkbox" name="assessment" value="Rubric"><span>Rubric<small>Assessment using criteria aligned to lesson goals.</small></span></label>
+            <label class="choice"><input type="checkbox" name="assessment" value="Self-reflection"><span>Self-reflection<small>What learners learned and what they would do next.</small></span></label>
+            <label class="choice"><input type="checkbox" name="assessment" value="Other"><span>Other<small>Short answer</small></span></label>
+          </div>
+          <label class="field" id="other-assessment-wrap" hidden>
+            Other (short answer)
+            <input type="text" id="other-assessment" name="otherAssessment" placeholder="e.g. exit ticket, quick quiz, gallery walk">
+          </label>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="doc-button" type="button" id="download-doc">Download DOCX</button>
+        <button class="reset-button" type="reset">Clear form</button>
+      </div>
     </form>
   </main>
   <script>
@@ -106,6 +171,7 @@
         ["G4.3 Individual initiative", "Clue: Do learners take personal responsibility or start a practical action themselves?"]
       ]
     };
+
     function addChoices(containerId, items, name) {
       const container = document.getElementById(containerId);
       for (const item of items) {
@@ -118,23 +184,58 @@
         label.append(input, text); container.append(label);
       }
     }
-    addChoices("age-options", groups.age, "age"); addChoices("place-options", groups.place, "place"); addChoices("climate-options", groups.climate, "climateSubject"); addChoices("subject-options", groups.subject, "subject"); addChoices("competence-options", groups.competence, "competence");
+
+    addChoices("age-options", groups.age, "age");
+    addChoices("place-options", groups.place, "place");
+    addChoices("climate-options", groups.climate, "climateSubject");
+    addChoices("subject-options", groups.subject, "subject");
+    addChoices("competence-options", groups.competence, "competence");
+
     const form = document.getElementById("lesson-form");
     const otherSubjectWrap = document.getElementById("other-subject-wrap");
+    const otherAssessmentWrap = document.getElementById("other-assessment-wrap");
+
     form.addEventListener("change", event => {
-      if (event.target.name === "subject") otherSubjectWrap.hidden = ![...form.querySelectorAll('input[name="subject"]:checked')].some(input => input.value === "Other");
+      if (event.target.name === "subject") {
+        otherSubjectWrap.hidden = ![...form.querySelectorAll('input[name="subject"]:checked')].some(input => input.value === "Other");
+      }
+      if (event.target.name === "assessment") {
+        otherAssessmentWrap.hidden = ![...form.querySelectorAll('input[name="assessment"]:checked')].some(input => input.value === "Other");
+      }
     });
-    form.addEventListener("reset", () => { otherSubjectWrap.hidden = true; });
+
+    form.addEventListener("reset", () => {
+      otherSubjectWrap.hidden = true;
+      otherAssessmentWrap.hidden = true;
+    });
+
     function getFormSummary() {
       const data = new FormData(form);
       const selected = name => [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(input => input.value);
       const subjects = selected("subject");
       const otherSubject = (data.get("otherSubject") || "").trim();
       if (subjects.includes("Other") && otherSubject) subjects[subjects.indexOf("Other")] = `Other: ${otherSubject}`;
+
+      const assessment = selected("assessment");
+      const otherAssessment = (data.get("otherAssessment") || "").trim();
+      if (assessment.includes("Other") && otherAssessment) assessment[assessment.indexOf("Other")] = `Other: ${otherAssessment}`;
+
       const date = data.get("eventDate");
       const formattedDate = date ? new Intl.DateTimeFormat(undefined, { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${date}T12:00:00`)) : "—";
-      return { authors: (data.get("authors") || "").trim(), eventDate: formattedDate, lessonTime: data.get("lessonTime") || "—", age: selected("age"), place: selected("place"), climate: selected("climateSubject"), subjects, competences: selected("competence"), notes: (data.get("notes") || "").trim() };
+      return {
+        authors: (data.get("authors") || "").trim(),
+        eventDate: formattedDate,
+        lessonTime: data.get("lessonTime") || "—",
+        age: selected("age"),
+        place: selected("place"),
+        climate: selected("climateSubject"),
+        subjects,
+        competences: selected("competence"),
+        notes: (data.get("notes") || "").trim(),
+        assessment,
+      };
     }
+
     function xmlEscape(value) { return String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;").replace(/'/g,"&apos;"); }
     function docParagraph(text, style = "Normal", bold = false) {
       const run = `<w:r>${bold ? "<w:rPr><w:b/></w:rPr>" : ""}<w:t xml:space="preserve">${xmlEscape(text)}</w:t></w:r>`;
@@ -145,6 +246,7 @@
       const entries = Array.isArray(values) ? (values.length ? values : ["—"]) : [values || "—"];
       for (const value of entries) paragraphs.push(docParagraph(`•  ${value}`));
     }
+
     document.getElementById("download-doc").addEventListener("click", async () => {
       if (!form.reportValidity()) return;
       if (!window.JSZip) { alert("The DOCX download library could not be loaded. Check your internet connection and try again."); return; }
@@ -161,10 +263,11 @@
         addDocxRow(paragraphs, "Climate change subject", data.climate);
         addDocxRow(paragraphs, "Subject areas", data.subjects);
         addDocxRow(paragraphs, "GreenComp competences", data.competences);
+        addDocxRow(paragraphs, "Assessment methods", data.assessment);
         paragraphs.push(docParagraph("Additional notes", "Heading2"));
         for (const line of (data.notes || "—").split(/\r?\n/)) paragraphs.push(docParagraph(line || " "));
-        const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${paragraphs.join("")}<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440"/></w:sectPr></w:body></w:document>`;
-        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:color w:val="4F6B5A"/><w:sz w:val="22"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:b/><w:sz w:val="24"/></w:rPr></w:style></w:styles>`;
+        const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${paragraphs.join("")}</w:body></w:document>`;
+        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:sz w:val="22"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:color w:val="4F6B5A"/><w:sz w:val="22"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:b/><w:sz w:val="24"/></w:rPr></w:style></w:styles>`;
         const zip = new JSZip();
         zip.file("[Content_Types].xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>`);
         zip.file("_rels/.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`);
