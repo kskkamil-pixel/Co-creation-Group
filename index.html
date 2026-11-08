@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#176b4a">
   <title>STEAM meets GreenComp Toolkit Co-creation Group</title>
   <style>
-    :root { color-scheme: light; --ink:#1e302a; --muted:#52675e; --green:#176b4a; --green-dark:#104c36; --soft:#f5faf6; --shadow:0 12px 32px rgba(27,69,49,.10); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+    :root { color-scheme: light; --ink:#1e302a; --muted:#52675e; --green:#176b4a; --green-dark:#104c36; --soft:#f5faf6; --shadow:0 12px 32px rgba(27,69,49,.10); font-family:system-ui,-apple-system,Segoe UI,sans-serif; }
     * { box-sizing:border-box; }
     body { min-height:100vh; margin:0; padding:32px 16px 56px; background:radial-gradient(ellipse at 8% 5%,rgba(128,203,156,.45),transparent 30rem),radial-gradient(ellipse at 92% 18%,rgba(105,184,150,.22),transparent 22rem),#edf6f1; }
     main { width:min(100%,980px); margin:0 auto; }
@@ -42,7 +42,7 @@
     button:hover { filter:brightness(1.04); transform:translateY(-1px); }
     @media(max-width:540px) { body{padding:16px 11px 36px}.intro,.section{padding:19px 16px;border-radius:15px}.actions button{width:100%} }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-x/X8kF2abf7s9h29KpVJtgH4cXzQeR3Xn14D9l8oJkq6o4JbX4tHcB8Y4YBf7kN2L4f2Z5bH8V8e3F0Q5k5qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
   <main>
@@ -90,7 +90,7 @@
       <section class="section" aria-labelledby="competence-heading">
         <h2 id="competence-heading">GreenComp competences</h2>
         <p class="hint">Select the competence areas and specific competences connected to the lesson. Each choice includes a short clue to help you decide.</p>
-        <p class="framework-link">For more information, see the <a href="https://op.europa.eu/en/publication-detail/-/publication/bc83061d-74ec-11ec-9136-01aa75ed71a1" target="_blank" rel="noopener noreferrer">EU GreenComp publication</a> or the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer">E4C GreenComp framework</a>.</p>
+        <p class="framework-link">For more information, see the <a href="https://op.europa.eu/en/publication-detail/-/publication/bc83061d-74ec-11ec-9136-01aa75ed71a1" target="_blank" rel="noopener noreferrer">EU GreenComp publication</a> or the <a href="https://ec.europa.eu/" target="_blank" rel="noopener noreferrer">EU GreenComp framework</a>.</p>
         <fieldset><div class="choices" id="competence-options"></div></fieldset>
       </section>
 
@@ -267,7 +267,7 @@
         paragraphs.push(docParagraph("Additional notes", "Heading2"));
         for (const line of (data.notes || "—").split(/\r?\n/)) paragraphs.push(docParagraph(line || " "));
         const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${paragraphs.join("")}</w:body></w:document>`;
-        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:sz w:val="22"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:color w:val="4F6B5A"/><w:sz w:val="22"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:b/><w:sz w:val="24"/></w:rPr></w:style></w:styles>`;
+        const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:sz w:val="22"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:qFormat/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Subtitle"><w:name w:val="Subtitle"/><w:basedOn w:val="Normal"/><w:qFormat/><w:rPr><w:color w:val="4F6B5A"/><w:sz w:val="22"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:qFormat/><w:rPr><w:b/><w:sz w:val="24"/></w:rPr></w:style></w:styles>`;
         const zip = new JSZip();
         zip.file("[Content_Types].xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>`);
         zip.file("_rels/.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`);
